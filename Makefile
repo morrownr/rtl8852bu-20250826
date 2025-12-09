@@ -39,6 +39,8 @@ EXTRA_CFLAGS += -Wno-incompatible-pointer-types
 
 EXTRA_CFLAGS += -Wno-expansion-to-defined
 
+EXTRA_CFLAGS += -Wno-header-guard
+
 ############ ANDROID COMMON KERNEL ############
 # clang
 ifeq ($(CC), clang)
