@@ -15,6 +15,30 @@ EXTRA_CFLAGS += -Wno-unused-label
 EXTRA_CFLAGS += -Wno-unused
 #EXTRA_CFLAGS += -Wno-uninitialized
 
+EXTRA_CFLAGS += -Wno-implicit-fallthrough
+EXTRA_CFLAGS += -Wno-sizeof-array-div
+
+EXTRA_CFLAGS += -Wno-address
+EXTRA_CFLAGS += -Wframe-larger-than=1648
+EXTRA_CFLAGS += -Wno-missing-prototypes
+EXTRA_CFLAGS += -Wno-missing-declarations
+#EXTRA_CFLAGS += -Wno-cast-function-type
+
+EXTRA_CFLAGS += -Wno-enum-int-mismatch
+#EXTRA_CFLAGS += -Wno-stringop-overread
+EXTRA_CFLAGS += -Wno-enum-conversion
+#EXTRA_CFLAGS += -Wno-int-in-bool-context
+EXTRA_CFLAGS += -Wno-missing-prototypes
+#EXTRA_CFLAGS += -Wno-missing-declarations
+
+EXTRA_CFLAGS += -Wno-empty-body
+EXTRA_CFLAGS += -Wno-old-style-declaration
+EXTRA_CFLAGS += -Wno-restrict
+EXTRA_CFLAGS += -Wno-discarded-qualifiers
+EXTRA_CFLAGS += -Wno-incompatible-pointer-types
+
+EXTRA_CFLAGS += -Wno-expansion-to-defined
+
 ############ ANDROID COMMON KERNEL ############
 # clang
 ifeq ($(CC), clang)
