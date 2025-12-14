@@ -48,8 +48,8 @@ following links will provide more information:
 > [!NOTE]
 > Monitor mode is not supported.
 > Linux users that want good support for monitor mode in a dual band or
-> tri-band adapter should seek out USB WiFi adapters based on the
-> mt7610u, mt7612u or mt7921au chipsets.
+> tri-band adapter should seek out USB WiFi adapters that use the
+> mt7925u, mt7921u, mt7612u, mt7610u, rtw88 or rtw89 drivers.
 
 ### A FAQ is available in this repo with the name `FAQ.md`
 
@@ -76,7 +76,7 @@ Note: Kernels earlier than 5.10 may work but have not been tested.
 
 ### Tested Compilers
 
-- gcc 12, 13 and 14
+- gcc 13, 14 and 15
 
 ### Tested Linux Distributions
 
@@ -85,7 +85,7 @@ which can be provided via PR or message in Issues.
 
 - [Arch Linux](https://www.archlinux.org) (kernels 5.4 and 5.11)
 
-- [Debian](https://www.debian.org/) (kernels 5.10, 5.15 and 6.1)
+- [Debian](https://www.debian.org/) (kernels 6.1 and 6.12)
 
 - [Fedora](https://getfedora.org) Fedora 38 (6.2.13-300)
 
@@ -93,11 +93,11 @@ which can be provided via PR or message in Issues.
 
 - [openSUSE](https://www.opensuse.org/) Tumbleweed (rolling) (kernel 5.15)
 
-- [Raspberry Pi OS](https://www.raspberrypi.org) (2024-11-19)(kernel 6.6)
+- [Raspberry Pi OS](https://www.raspberrypi.org) (kernel 6.12)
 
 - [Raspberry Pi Desktop](https://www.raspberrypi.org) (2022-07-01) (x86 32 bit) (kernel 5.10)
 
-- [Ubuntu](https://www.ubuntu.com) 24.04 (kernel 6.8) and 24.10 (kernel 6.11)
+- [Ubuntu](https://www.ubuntu.com) (kernel 6.8, 6.11. 6.14 and 6.17)
 
 Note: Red Hat Enterprise Linux (RHEL) and distros based on RHEL are
 supported by Red Hat devs due to the way kernel patches are handled in
