@@ -383,13 +383,13 @@ cd ~/src
 #### Step 6: Download the driver
 
 ```
-git clone https://github.com/morrownr/rtl8852bu-20240418.git
+git clone https://github.com/morrownr/rtl8852bu-20250826.git
 ```
 
 #### Step 7: Move to the newly created driver directory
 
 ```
-cd ~/src/rtl8852bu-20240418
+cd ~/src/rtl8852bu-20250826
 ```
 
 #### Step 8: Run the installation script (`install-driver.sh`)
@@ -614,7 +614,7 @@ kernel 5.10 to kernel 5.15)
 #### Step 1: Move to the driver directory
 
 ```
-cd ~/src/rtl8852bu-20240418
+cd ~/src/rtl8852bu-20250826
 ```
 
 #### Step 2: Pull updated code from this repo
@@ -646,7 +646,7 @@ The driver directory can be deleted after running this script.
 #### Step 2: Move to the driver directory
 
 ```
-cd ~/src/rtl8852bu-20240418
+cd ~/src/rtl8852bu-20250826
 ```
 
 #### Step 3: Run the removal script
