@@ -159,6 +159,7 @@ static struct usb_device_id rtw_usb_id_tbl[] = {
 	{USB_DEVICE_AND_INTERFACE_INFO(0x0586, 0x3428, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* ZyXEL NWD7605 */
 	{USB_DEVICE_AND_INTERFACE_INFO(0x0b05, 0x1a62, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* ASUS USB-AX55 Nano */
 	{USB_DEVICE_AND_INTERFACE_INFO(0x0db0, 0x6931, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* MSI AX1800 */
+	{USB_DEVICE_AND_INTERFACE_INFO(0x0db0, 0xf0c8, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* MSI AX1800 Nano*/
 	{USB_DEVICE_AND_INTERFACE_INFO(0x2001, 0x3327, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* D-LINK AX18U */
 	{USB_DEVICE_AND_INTERFACE_INFO(0x3574, 0x6121, 0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* COMFAST CF-943AX */
 	{USB_DEVICE_AND_INTERFACE_INFO(0x3574, 0x6241 ,0xff, 0xff, 0xff), .driver_info = RTL8852B}, /* COMFAST 8852BU */
