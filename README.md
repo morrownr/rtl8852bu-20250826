@@ -49,7 +49,7 @@ following links will provide more information:
 > Monitor mode is not supported.
 > Linux users that want good support for monitor mode in a dual band or
 > tri-band adapter should seek out USB WiFi adapters that use the
-> mt7925u, mt7921u, mt7612u, mt7610u, rtw88 or rtw89 drivers.
+> mt7925u, mt7921u, mt7612u, mt7610u, rtw88 or rtw89 in-kernel drivers.
 
 ### A FAQ is available in this repo with the name `FAQ.md`
 
@@ -69,10 +69,10 @@ Note: Additional CPU architectures may work but have not been tested.
 
 ### Compatible Kernels
 
-- Kernels: 5.10 - 6.6 (Realtek)
-- Kernels: 6.7  - 6.17 (community support)
+- Kernels: 5.15 - 6.14 (Realtek)
+- Kernels: 6.15 - 6.18 (community support)
 
-Note: Kernels earlier than 5.10 may work but have not been tested.
+Note: Kernels earlier than 5.15 may work but have not been tested.
 
 ### Tested Compilers
 
