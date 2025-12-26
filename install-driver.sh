@@ -30,6 +30,10 @@
 #
 # $ shellcheck install-driver.sh
 #
+# To check for object files that clean should delete:
+#
+# $ find . \( -name '*.orig' -o -name '*.o' \) -ls
+#
 # Copyright(c) 2025 Nick Morrow
 #
 # This program is free software; you can redistribute it and/or modify

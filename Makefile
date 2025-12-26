@@ -1030,6 +1030,7 @@ config_r:
 
 clean:
 #	$(MAKE) -C $(KSRC) M=$(shell pwd) clean
+	cd $(HAL) ; rm -fr */*/*/*/*/*/*.o
 	cd $(HAL) ; rm -fr */*/*/*/*.mod.c */*/*/*/*.mod */*/*/*/*.o */*/*/*/.*.cmd */*/*/*/*.ko
 	cd $(HAL) ; rm -fr */*/*/*.mod.c */*/*/*.mod */*/*/*.o */*/*/.*.cmd */*/*/*.ko
 	cd $(HAL) ; rm -fr */*/*.mod.c */*/*.mod */*/*.o */*/.*.cmd */*/*.ko
@@ -1042,7 +1043,7 @@ clean:
 	cd os_dep ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
 	cd phl ; rm -fr hal_g6/mac/include/AutoGen_Func/g6/8852b/.*.cmd
 	cd platform ; rm -fr *.mod.c *.mod *.o .*.cmd *.ko
-	rm -fr Module.symvers ; rm -fr Module.markers ; rm -fr modules.order
+	rm -fr Module.symvers ; rm -fr Module.markers ; rm -fr modules.order ; rm -fr .module-common.o
 	rm -fr *.mod.c *.mod *.o .*.cmd *.ko *~
 	rm -fr .tmp_versions
 endif
