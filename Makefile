@@ -968,7 +968,7 @@ strip:
 	$(CC_STRIP) $(MODULE_NAME).ko --strip-unneeded
 
 install:
-	all
+#	all
 	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
 	/sbin/depmod -a ${KVER}
 	cp -f $(MODULE_NAME).conf /etc/modprobe.d
