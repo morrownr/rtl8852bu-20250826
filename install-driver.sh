@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Purpose: Install Realtek out-of-kernel USB WiFi adapter drivers.
 #
@@ -34,7 +34,7 @@
 #
 # $ find . \( -name '*.orig' -o -name '*.o' \) -ls
 #
-# Copyright(c) 2025 Nick Morrow
+# Copyright(c) 2026 Nick Morrow, et al.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of version 2 of the GNU General Public License as
@@ -67,6 +67,8 @@ KVER="$(uname -r)"
 #fi
 
 MODDESTDIR="/lib/modules/${KVER}/kernel/drivers/net/wireless/"
+
+DEPS="gcc iw bc make grep"
 
 # detemine what ARCH will be sent to gcc
 #GARCH="$(uname -m | sed -e "s/i.86/i386/; s/ppc/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv.*/riscv/;")"
@@ -113,26 +115,20 @@ if ! command -v "${TEXT_EDITOR}" >/dev/null 2>&1; then
 	exit 1
 fi
 
-# check to ensure gcc is installed
-if ! command -v gcc >/dev/null 2>&1; then
-	echo "A required package is not installed."
-	echo "Please install the following package: gcc"
-	echo "Once the package is installed, please run \"sudo ./${SCRIPT_NAME}\""
-	exit 1
-fi
-
 # ensure /usr/sbin is in the PATH so iw can be found
 if ! echo "$PATH" | grep -qw sbin; then
         export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 fi
 
-# check to ensure iw is installed
-if ! command -v iw >/dev/null 2>&1; then
+# check to ensure dependencies are installed
+for dep in $DEPS; do
+if ! command -v "$dep" >/dev/null 2>&1; then
 	echo "A required package is not installed."
-	echo "Please install the following package: iw"
+	echo "Please install the following package: $dep"
 	echo "Once the package is installed, please run \"sudo ./${SCRIPT_NAME}\""
 	exit 1
 fi
+done
 
 # if NoPrompt is not used, display notice then ask if ready to continue
 if [ $NO_PROMPT -ne 1 ]; then
@@ -152,7 +148,9 @@ fi
 # displays script name and version
 echo "${SCRIPT_NAME} v${SCRIPT_VERSION}"
 
-# display distro info
+# display distro info, 
+# if lsb_release is available
+command -v lsb_release >/dev/null && \
 lsb_release -id | grep D
 
 # display kernel version
@@ -168,7 +166,14 @@ echo "Kernel ARCH: ${KARCH}"
 #echo ": ${GARCH} (architecture to send to gcc)"
 
 SMEM=$(LC_ALL=C free | awk '/Mem:/ { print $2 }')
-sproc=$(nproc)
+
+sproc=""
+# check to ensure nproc is available
+command -v nproc >/dev/null 2>&1 && sproc="$(nproc)"
+# should $sproc still be empty, get the core-count via grep
+[ -z "$sproc" ] && sproc="$(grep -c processor /proc/cpuinfo)"
+
+
 # avoid Out of Memory condition in low-RAM systems by limiting core usage
 if [ "$sproc" -gt 1 ]; then
 	if [ "$SMEM" -lt 1400000 ]
@@ -247,22 +252,6 @@ iw reg get | grep country
 
 echo
 
-
-# check to ensure bc is installed
-if ! command -v bc >/dev/null 2>&1; then
-	echo "A required package is not installed."
-	echo "Please install the following package: bc"
-	echo "Once the package is installed, please run \"sudo ./${SCRIPT_NAME}\""
-	exit 1
-fi
-
-# check to ensure make is installed
-if ! command -v make >/dev/null 2>&1; then
-	echo "A required package is not installed."
-	echo "Please install the following package: make"
-	echo "Once the package is installed, please run \"sudo ./${SCRIPT_NAME}\""
-	exit 1
-fi
 
 # ensure directory is clean of files from manual compilation
 make clean >/dev/null 2>&1
