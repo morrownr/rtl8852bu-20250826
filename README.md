@@ -59,6 +59,26 @@ following links will provide more information:
 
 ### Additional documentation is in the file `8852bu.conf`
 
+### Slow Speed / Legacy Mode Troubleshooting
+
+If your adapter is connected on a USB 3.x port but reports:
+
+iw dev <interface> link
+
+or:
+
+iw dev
+
+showing:
+
+width: 20 MHz (no HT)
+
+check your router's **WMM (Wi-Fi Multimedia)** setting.
+If it's disabled, enable it.
+If it's already enabled, disable it and enable it back again.
+
+This worked on a TP-Link Archer TX20U (RTL8832BU, USB ID 35bc:0100) observed to operate at only ~24 Mbps while reporting `20 MHz (no HT)`. Disabling and renabling WMM on the router restored normal HT/VHT/HE operation and high link rates.
+
 ### Compatible CPU Architectures
 
 - x86, i386, i686
