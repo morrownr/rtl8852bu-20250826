@@ -54,7 +54,11 @@ static inline char *_os_strcpy(char *dest, const char *src)
 }
 static inline char *_os_strncpy(char *dest, const char *src, size_t n)
 {
-	return strncpy(dest, src, n);
+	size_t len = strnlen(src, n);
+
+	memcpy(dest, src, len);
+	memset(dest + len, 0, n - len);
+	return dest;
 }
 #if 1
 #define _os_strchr(s, c) strchr(s, c)
