@@ -28,7 +28,7 @@ driver. If you want to use the in-kernel driver on kernels older than
 
 https://github.com/morrownr/rtw89
 
-My intention is to no longer updatte this repo after kernel 7.3 as it
+My intention is to no longer update this repo after kernel 7.3 as it
 should not be necessary. PRs may be accepted from community devs but
 adequate testing must be performed before posting.
 
