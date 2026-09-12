@@ -54,7 +54,11 @@ struct rtw_sme_auth_data {
 int cfg80211_rtw_probe_client(struct wiphy *wiphy,
 			      struct net_device *ndev,
 			      const u8 *peer,
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(7, 3, 0))
+			      u64 cookie);
+#else
 			      u64 *cookie);
+#endif
 
 int rtw_sme_send_auth_challenge(_adapter *padapter, u8 *frame,
 				size_t frame_len,

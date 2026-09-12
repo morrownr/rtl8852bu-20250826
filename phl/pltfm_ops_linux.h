@@ -54,7 +54,20 @@ static inline char *_os_strcpy(char *dest, const char *src)
 }
 static inline char *_os_strncpy(char *dest, const char *src, size_t n)
 {
-	return strncpy(dest, src, n);
+	size_t i;
+
+	/* strncpy() was removed from the kernel in 7.2. Callers here copy a
+	 * fixed number of bytes into the middle of a buffer and must not be
+	 * NUL terminated, so strscpy() is not a substitute. Keep the original
+	 * semantics: copy up to n, pad the remainder with NUL, no guarantee
+	 * of termination.
+	 */
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[i] = src[i];
+	for (; i < n; i++)
+		dest[i] = '\0';
+
+	return dest;
 }
 #if 1
 #define _os_strchr(s, c) strchr(s, c)
