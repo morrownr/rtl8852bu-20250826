@@ -21,7 +21,11 @@
 int cfg80211_rtw_probe_client(struct wiphy *wiphy,
 			      struct net_device *ndev,
 			      const u8 *peer,
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(7, 3, 0))
+			      u64 cookie)
+#else
 			      u64 *cookie)
+#endif
 {
 	RTW_INFO(FUNC_NDEV_FMT"\n", FUNC_NDEV_ARG(ndev));
 	return 0;

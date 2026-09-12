@@ -299,7 +299,11 @@ int rtw_ndev_init(struct net_device *dev)
 
 	RTW_PRINT(FUNC_ADPT_FMT" if%d mac_addr="MAC_FMT"\n"
 		, FUNC_ADPT_ARG(adapter), (adapter->iface_id + 1), MAC_ARG(dev->dev_addr));
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(7, 2, 0))
+	strscpy(adapter->old_ifname, dev->name, IFNAMSIZ);
+#else
 	strncpy(adapter->old_ifname, dev->name, IFNAMSIZ);
+#endif
 	adapter->old_ifname[IFNAMSIZ - 1] = '\0';
 #ifdef CONFIG_ARCH_CORTINA
 	dev->priv_flags = IFF_DOMAIN_WLAN;
