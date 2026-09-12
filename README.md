@@ -1,7 +1,5 @@
 ## rtl8852bu ( 8852bu.ko ) :rocket:
 
-Maintained by: @morrownr
-
 ## Linux Driver for USB WiFi Adapters that are based on the RTL8832BU and RTL8852BU Chipsets
 
 - v1.19.21-86 - 20250826 plus updates from the Linux community
@@ -13,16 +11,30 @@ how to confirm that this is the correct driver for your adapter.
 Note: Posting this driver is not a recommendation for Linux users to buy
 USB WiFi adapters based on the Realtek chipsets supported by this
 driver. Realtek out-of-kernel wifi drivers, such as this one, are not
-Linux Wireless Standards compliant and appear to be designed to be used
-by skilled programmers producing products such as embedded systems.
-Users of desktop and server distros such as Ubuntu, Debian, Manjaro,
-Arch, Fedora, Raspberry Pi OS will likely find that adapters that use
-in-kernel drivers are more stable and much more trouble-free. The
-following links will provide more information:
+necessarily fully Linux Wireless Standards compliant and appear to be
+designed to be used by skilled programmers producing products such as
+embedded systems. Users of desktop and server distros such as Ubuntu,
+Debian, Manjaro, Arch, Fedora, Raspberry Pi OS will likely find that
+adapters that use in-kernel drivers are more stable and much more 
+trouble-free. The following links will provide more information:
 
 [USB WiFi adapter information for Linux](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapter_Information_for_Linux.md)
 
 [USB WiFi adapters that are supported with Linux in-kernel drivers](https://github.com/morrownr/USB-WiFi/blob/main/home/USB_WiFi_Adapters_that_are_supported_with_Linux_in-kernel_drivers.md)
+
+If you are using kernel 7.2 or later, there should be no need to use this
+driver. If you want to use the in-kernel driver on kernels older than
+7.2, please see the following repo:
+
+https://github.com/morrownr/rtw89
+
+My intention is to no longer updatte this repo after kernel 7.3 as it
+should not be necessary. PRs may be accepted from community devs but
+adequate testing must be performed before posting.
+
+Regards,
+
+@morrownr
 
 ### Supported Features
 
@@ -72,7 +84,7 @@ Note: Additional CPU architectures may work but have not been tested.
 ### Compatible Kernels
 
 - Kernels: 5.15 - 6.14 (Realtek)
-- Kernels: 6.15 - 7.1  (community support)
+- Kernels: 6.15 - 7.3  (community support)
 
 Note: Kernels earlier than 5.15 may work but have not been tested.
 
