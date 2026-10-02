@@ -107,11 +107,11 @@ which can be provided via PR or message in Issues.
 
 - [openSUSE](https://www.opensuse.org/) Tumbleweed (rolling) (kernel 5.15)
 
-- [Raspberry Pi OS](https://www.raspberrypi.org) (kernel 6.12)
+- [Raspberry Pi OS](https://www.raspberrypi.org) (kernel 6.18)
 
 - [Raspberry Pi Desktop](https://www.raspberrypi.org) (2022-07-01) (x86 32 bit) (kernel 5.10)
 
-- [Ubuntu](https://www.ubuntu.com) (kernels 6.8, 6.11. 6.14, 6.17 and 7.0)
+- [Ubuntu](https://www.ubuntu.com) (kernels 6.8, 6.11. 6.14, 6.17, 7.0 and 7.3)
 
 Note: Red Hat Enterprise Linux (RHEL) and distros based on RHEL are
 supported by Red Hat devs due to the way kernel patches are handled in

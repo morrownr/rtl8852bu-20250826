@@ -161,11 +161,11 @@ if command -v dkms >/dev/null 2>&1; then
 	done
 	if [ -f /etc/modprobe.d/${OPTIONS_FILE} ]; then
 		echo "Removing ${OPTIONS_FILE} from /etc/modprobe.d"
-		rm /etc/modprobe.d/${OPTIONS_FILE}
+		rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	fi
 	if [ -d /usr/src/${DRV_NAME}-${DRV_VERSION} ]; then
 		echo "Removing source files from /usr/src/${DRV_NAME}-${DRV_VERSION}"
-		rm -r /usr/src/${DRV_NAME}-${DRV_VERSION}
+		rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	fi
 fi
 

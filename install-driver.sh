@@ -34,7 +34,7 @@
 #
 # $ find . \( -name '*.orig' -o -name '*.o' \) -ls
 #
-# Copyright(c) 2025 Nick Morrow
+# Copyright(c) 2026 Nick Morrow
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of version 2 of the GNU General Public License as
@@ -46,7 +46,7 @@
 # GNU General Public License for more details.
 
 SCRIPT_NAME="install-driver.sh"
-SCRIPT_VERSION="20251210"
+SCRIPT_VERSION="20260916"
 
 MODULE_NAME="8852bu"
 
@@ -346,11 +346,11 @@ if command -v dkms >/dev/null 2>&1; then
 	done
 	if [ -f /etc/modprobe.d/${OPTIONS_FILE} ]; then
 		echo "Deleting ${OPTIONS_FILE} from /etc/modprobe.d"
-		rm /etc/modprobe.d/${OPTIONS_FILE}
+		rm -f /etc/modprobe.d/${OPTIONS_FILE}
 	fi
 	if [ -d /usr/src/${DRV_NAME}-${DRV_VERSION} ]; then
 		echo "Deleting source files from /usr/src/${DRV_NAME}-${DRV_VERSION}"
-		rm -r /usr/src/${DRV_NAME}-${DRV_VERSION}
+		rm -rf /usr/src/${DRV_NAME}-${DRV_VERSION}
 	fi
 fi
 
@@ -372,6 +372,8 @@ cp -f ${OPTIONS_FILE} /etc/modprobe.d
 # determine if dkms is installed and run the appropriate installation routines
 if ! command -v dkms >/dev/null 2>&1; then
 	echo "The non-dkms installation routines are in use."
+
+	make clean >/dev/null 2>&1
 
 	make -j"${sproc}"
 	RESULT=$?
@@ -404,6 +406,7 @@ if ! command -v dkms >/dev/null 2>&1; then
 	fi
 	
 	if [ "$RESULT" = "0" ]; then
+        	make clean >/dev/null 2>&1
 		echo "The driver was installed successfully."
 		echo
 	else
